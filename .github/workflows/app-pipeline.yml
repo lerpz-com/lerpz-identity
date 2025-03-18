@@ -16,6 +16,8 @@ jobs:
   prepare-pipeline:
     uses: lerpz-com/github-actions/.github/workflows/prepare-pipeline.yml@v1
     secrets: inherit
+    with:
+      node: true
 
   build-and-push-image:
     uses: lerpz-com/github-actions/.github/workflows/docker-build-and-push.yml@v1
