@@ -1,7 +1,17 @@
-Dockerfile
-.dockerignore
+# Node.js
+.next
 node_modules
 npm-debug.log
-README.md
-.next
+eslint.config.mjs
+
+# Git & GitHub
 .git
+.github
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Other
+README.md
