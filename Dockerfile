@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN apk add --no-cache libc6-compat
 
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY package.json pnpm-lock.yaml* ./
 RUN corepack enable pnpm && pnpm i --frozen-lockfile
 
 
