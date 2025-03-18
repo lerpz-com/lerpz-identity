@@ -1,0 +1,28 @@
+name: Project pipeline to deploy rust projects using containers
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_override:
+        description: Create release override
+        type: boolean
+        default: false
+
+  push:
+    branches:
+      - "**"
+
+jobs:
+  prepare-pipeline:
+    uses: lerpz-com/github-actions/.github/workflows/prepare-pipeline.yml@v1
+    secrets: inherit
+
+  build-and-push-image:
+    uses: lerpz-com/github-actions/.github/workflows/docker-build-and-push.yml@v1
+    needs: [prepare-pipeline]
+    secrets: inherit
+    with:
+      build_override: ${{ inputs.build_override || false }}
+      deploy_env: ${{ needs.prepare-pipeline.outputs.deploy_env }}
+      image_name: ${{ needs.prepare-pipeline.outputs.image_name }}
+      package_version: ${{ needs.prepare-pipeline.outputs.node_package_version }}
