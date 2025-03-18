@@ -28,3 +28,11 @@ jobs:
       deploy_env: ${{ needs.prepare-pipeline.outputs.deploy_env }}
       image_name: ${{ needs.prepare-pipeline.outputs.image_name }}
       package_version: ${{ needs.prepare-pipeline.outputs.node_package_version }}
+
+  deploy-wa:
+    uses: lerpz-com/github-actions/.github/workflows/deploy-wa.yml@v1
+    needs: [prepare-pipeline, build-and-push-image]
+    secrets: inherit
+    with:
+      deploy_env: ${{ needs.prepare-pipeline.outputs.deploy_env }}
+      image_path: ${{ needs.build-and-push-image.outputs.image_path }}
