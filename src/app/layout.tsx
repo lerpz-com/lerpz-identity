@@ -1,5 +1,11 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import CssBaseline from '@mui/material/CssBaseline';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
+import { ThemeProvider } from '@mui/material/styles';
 import type { Metadata } from "next";
 import { Fira_Mono, Poppins } from "next/font/google";
+import * as React from 'react';
+import theme from '../theme';
 import "./globals.css";
 
 const poppins = Poppins({
@@ -27,9 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${firaMono.variable} antialiased`}>
-        {children}
+        <InitColorSchemeScript attribute="class" />
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <CssBaseline />
+          <ThemeProvider theme={theme}>
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
