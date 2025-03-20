@@ -1,10 +1,11 @@
-import "@/globals.css";
+import "@/app/globals.css";
 import theme from '@/theme';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { ThemeProvider } from '@mui/material/styles';
 import type { Metadata } from "next";
+import { SessionProvider } from 'next-auth/react';
 import { Fira_Mono, Poppins } from "next/font/google";
 import * as React from 'react';
 
@@ -39,7 +40,9 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <CssBaseline />
           <ThemeProvider theme={theme}>
-            {children}
+            <SessionProvider>
+              {children}
+            </SessionProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

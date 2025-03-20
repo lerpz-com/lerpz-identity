@@ -10,7 +10,6 @@
   },
   "packageManager": "pnpm@10.6.4",
   "dependencies": {
-    "@azure/msal-node": "^3.3.0",
     "@emotion/cache": "~11.14.0",
     "@emotion/react": "~11.14.0",
     "@emotion/styled": "~11.14.0",
@@ -18,7 +17,7 @@
     "@mui/material-nextjs": "~6.4.3",
     "@tanstack/react-query": "~5.69.0",
     "next": "~15.2.3",
-    "next-auth": "^4.24.11",
+    "next-auth": "beta",
     "react": "~19.0.0",
     "react-dom": "~19.0.0"
   },
@@ -32,5 +31,8 @@
     "eslint-config-next": "~15.2.3",
     "tailwindcss": "~4.0.14",
     "typescript": "~5.8.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
