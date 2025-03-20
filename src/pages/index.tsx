@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import LoginButton from '../components/LoginButton';
+import LoginButton from '@/components/LoginButton';
 
 export default function Home() {
   return (

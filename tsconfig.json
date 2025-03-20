@@ -2,13 +2,16 @@
   "compilerOptions": {
     // Compatibility
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "strict": true,
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
     "jsx": "preserve",
-
     // Module
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -16,10 +19,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-
     // Other
     "forceConsistentCasingInFileNames": true,
-    "plugins": [{ "name": "next" }],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",
