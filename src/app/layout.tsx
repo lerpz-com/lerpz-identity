@@ -1,11 +1,14 @@
 import "@/app/globals.css";
+import NAVIGATION from '@/navigation';
 import theme from '@/theme';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { ThemeProvider } from '@mui/material/styles';
+import { Authentication, Branding } from '@toolpad/core';
+import { NextAppProvider } from '@toolpad/core/nextjs';
 import type { Metadata } from "next";
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider, signIn, signOut } from 'next-auth/react';
 import { Fira_Mono, Poppins } from "next/font/google";
 import * as React from 'react';
 
@@ -28,6 +31,17 @@ export const metadata: Metadata = {
   description: "A platform for managing identities in Lerpz.",
 };
 
+const BRANDING: Branding = {
+  logo: <img src="/Lerpz@512x512.webp" alt="Lerpz logo" />,
+  title: 'Lerpz',
+  homeUrl: '/dashboard',
+}
+
+const AUTHENTICATION: Authentication = {
+  signIn,
+  signOut,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,9 +54,16 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <CssBaseline />
           <ThemeProvider theme={theme}>
-            <SessionProvider>
-              {children}
-            </SessionProvider>
+            <NextAppProvider
+              branding={BRANDING}
+              navigation={NAVIGATION}
+              authentication={AUTHENTICATION}
+              theme={theme}
+            >
+              <SessionProvider>
+                {children}
+              </SessionProvider>
+            </NextAppProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

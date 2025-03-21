@@ -8,9 +8,7 @@ export function SignIn() {
     }
 
     return (
-        <form onClick={handleSignIn}>
-            <Button variant="contained" className="w-full">Sign in</Button>
-        </form>
+        <Button onClick={handleSignIn} variant="contained" className="w-full">Sign in</Button>
     )
 }
 
@@ -21,8 +19,6 @@ export function SignOut() {
     }
 
     return (
-        <form action={handleSignOut}>
-            <Button variant="contained" className="w-full">Sign out</Button>
-        </form>
+        <Button onClick={handleSignOut} variant="contained" className="w-full">Sign out</Button>
     )
 }
