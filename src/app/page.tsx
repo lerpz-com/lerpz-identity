@@ -3,6 +3,7 @@ import { SignIn, SignOut } from '@/components/auth';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 
 export default async function Page() {
   const session = await auth()
@@ -29,6 +30,7 @@ export default async function Page() {
             <Typography sx={{ mb: 2 }}>
               Welcome {session.user?.email}
             </Typography>
+            <Link href="/dashboard"></Link>
             <SignOut />
           </div>
         ) : (

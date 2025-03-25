@@ -1,7 +1,4 @@
 import { auth } from '@/auth';
-import { DashboardLayout } from '@toolpad/core';
-import { Navigation } from '@toolpad/core/AppProvider';
-import { NextAppProvider } from '@toolpad/core/nextjs';
 
 export default async function RootLayout({
     children,
@@ -11,8 +8,8 @@ export default async function RootLayout({
     const data = await auth()
 
     return (
-        <DashboardLayout>
+        <>
             {children}
-        </DashboardLayout>
+        </>
     );
 }

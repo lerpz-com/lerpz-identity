@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { ThemeProvider } from '@mui/material/styles';
 import { Authentication, Branding } from '@toolpad/core';
-import { NextAppProvider } from '@toolpad/core/nextjs';
 import type { Metadata } from "next";
 import { SessionProvider, signIn, signOut } from 'next-auth/react';
 import { Fira_Mono, Poppins } from "next/font/google";
@@ -42,7 +41,7 @@ const AUTHENTICATION: Authentication = {
   signOut,
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -54,16 +53,9 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <CssBaseline />
           <ThemeProvider theme={theme}>
-            <NextAppProvider
-              branding={BRANDING}
-              navigation={NAVIGATION}
-              authentication={AUTHENTICATION}
-              theme={theme}
-            >
-              <SessionProvider>
-                {children}
-              </SessionProvider>
-            </NextAppProvider>
+            <SessionProvider>
+              {children}
+            </SessionProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
