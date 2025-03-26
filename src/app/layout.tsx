@@ -1,11 +1,9 @@
 import "@/app/globals.css";
-import NAVIGATION from '@/navigation';
 import theme from '@/theme';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { ThemeProvider } from '@mui/material/styles';
-import { Authentication, Branding } from '@toolpad/core';
 import type { Metadata } from "next";
 import { SessionProvider, signIn, signOut } from 'next-auth/react';
 import { Fira_Mono, Poppins } from "next/font/google";
@@ -28,17 +26,6 @@ const firaMono = Fira_Mono({
 export const metadata: Metadata = {
   title: "Lerpz - Identity",
   description: "A platform for managing identities in Lerpz.",
-};
-
-const BRANDING: Branding = {
-  logo: <img src="/Lerpz@512x512.webp" alt="Lerpz logo" />,
-  title: 'Lerpz',
-  homeUrl: '/dashboard',
-}
-
-const AUTHENTICATION: Authentication = {
-  signIn,
-  signOut,
 };
 
 export default function Layout({

@@ -8,8 +8,6 @@ export default async function RootLayout({
     const data = await auth()
 
     return (
-        <>
-            {children}
-        </>
+        <>{children}</>
     );
 }
