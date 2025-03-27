@@ -1,5 +1,5 @@
-import { Button } from '@mui/material'
-import { signIn, signOut } from "@/auth"
+import { signIn, signOut } from "@lerpz/auth"
+import { Button } from '@mantine/core';
 
 export function SignIn() {
     const handleSignIn = async () => {

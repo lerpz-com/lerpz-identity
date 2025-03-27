@@ -1,4 +1,4 @@
-import { auth } from '@/auth';
+import { auth } from '@lerpz/auth';
 
 export default async function RootLayout({
     children,

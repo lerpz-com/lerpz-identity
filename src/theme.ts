@@ -1,11 +1,11 @@
 'use client';
 
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mantine/core';
+import { firaMono, poppins } from '@lerpz/app/layout';
 
 const theme = createTheme({
-    typography: {
-        fontFamily: 'var(--font-poppins)',
-    },
+    fontFamily: poppins.style.fontFamily,
+    fontFamilyMonospace: firaMono.style.fontFamily,
 });
 
 export default theme

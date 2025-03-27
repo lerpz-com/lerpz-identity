@@ -1,22 +1,18 @@
-import "@/app/globals.css";
-import theme from '@/theme';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import CssBaseline from '@mui/material/CssBaseline';
-import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
-import { ThemeProvider } from '@mui/material/styles';
+import "@lerpz/app/globals.css";
+import theme from '@lerpz/theme';
+import { MantineProvider } from '@mantine/core';
 import type { Metadata } from "next";
-import { SessionProvider, signIn, signOut } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 import { Fira_Mono, Poppins } from "next/font/google";
-import * as React from 'react';
 
-const poppins = Poppins({
+export const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-const firaMono = Fira_Mono({
+export const firaMono = Fira_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-fira-mono",
@@ -35,16 +31,12 @@ export default function Layout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${firaMono.variable} antialiased`}>
-        <InitColorSchemeScript attribute="class" />
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <CssBaseline />
-          <ThemeProvider theme={theme}>
-            <SessionProvider>
-              {children}
-            </SessionProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+      <body>
+        <MantineProvider theme={theme}>
+          <SessionProvider>
+            {children}
+          </SessionProvider>
+        </MantineProvider>
       </body>
     </html>
   );
