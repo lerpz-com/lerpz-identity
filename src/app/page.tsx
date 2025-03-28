@@ -1,33 +1,43 @@
-import { Button, Container, Text, Title } from '@mantine/core';
+import { Button, Container, Group, Text, Title } from "@mantine/core"
+import Link from "next/link"
 
-export default function HeroText() {
+export default function Home() {
   return (
-    <Container size={1400}>
-      <div>
-        <Title>
-          Automated AI{' '}
-          <Text component="span" inherit>
-            code reviews
-          </Text>{' '}
-          for any stack
-        </Title>
+    <Container size={800} className="flex flex-col justify-center">
+      <Title className="text-[62px]/[1.2] sm:text-[82px][1.1] text-center">
+        Start{" "}
+        <Text component="span" variant="gradient" gradient={{ from: "blue", to: "cyan" }} inherit>
+          Your Story
+        </Text>{" "}
+        With Us
+      </Title>
 
-        <Container p={0} size={600}>
-          <Text size="lg" c="dimmed">
-            Build more reliable software with AI companion. AI is also trained to detect lazy
-            developers who do nothing and just complain on Twitter.
-          </Text>
-        </Container>
+      <Text className="text-[32px] sm:text-[24px] text-center" c="dimmed" pt="xl">
+        Access everything you need in one simple location. Our easy-to-navigate
+        portal lets you manage requests, find information, and update your
+        details without hassle—designed specifically to make your workday
+        smoother.
+      </Text>
 
-        <div>
-          <Button size="lg" variant="default" color="gray">
-            Book a demo
-          </Button>
-          <Button size="lg">
-            Purchase a license
-          </Button>
-        </div>
-      </div>
+      <Group className="mx-auto" pt="xl">
+        <Button
+          size="xl"
+          variant="gradient"
+          gradient={{ from: "blue", to: "cyan" }}
+          component={Link}
+          href="/auth"
+        >
+          Sign Up
+        </Button>
+        <Button
+          size="xl"
+          variant="default"
+          component={Link}
+          href="/auth"
+        >
+          Sign In
+        </Button>
+      </Group>
     </Container>
-  );
+  )
 }

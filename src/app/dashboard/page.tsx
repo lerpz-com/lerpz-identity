@@ -1,9 +1,5 @@
-export default function Page({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Page() {
   return (
     <>Overview</>
-  );
+  )
 }

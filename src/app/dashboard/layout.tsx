@@ -1,13 +1,9 @@
-import { auth } from '@lerpz/auth';
-
 export default async function RootLayout({
-    children,
+  children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const data = await auth()
-
-    return (
-        <>{children}</>
-    );
+  return (
+    <>{children}</>
+  )
 }
